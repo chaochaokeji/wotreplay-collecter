@@ -1,0 +1,19 @@
+version: '3'
+services:
+  python:
+    image: wotpython
+    container_name: wotPython
+    links:
+      - mongo
+    volumes:
+      - ./app:/app
+
+  mongo:
+    image: mongo
+    container_name: wotMongo
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongoData/db:/data/db
+      - ./mongoData/configdb:/data/configdb

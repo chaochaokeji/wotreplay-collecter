@@ -1,0 +1,5 @@
+# 忽略python生成文件
+__pycache__/
+
+# 忽略所有wotreplay文件
+*.wotreplay
