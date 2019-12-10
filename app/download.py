@@ -24,25 +24,3 @@ class Download:
             if link.get('href'):
                 list.append('http://wotreplays.{0}'.format(self.__server) + link.get('href'))
         return list
-
-    # 下载replay
-    def downloadReplay(self, url):
-        # 判断url是否在数据库中存在
-        client = MongoClient('mongodb://mongo:27017')
-        downloadsCol = client['wotreplay-collecter']['downloads']
-        doc = downloadsCol.find_one({ 'url': url })
-        if doc:
-            return ''
-
-        # 下载
-        f = requests.get(url)
-        timeStamp = int(time.time())
-        filePath = './wotreplayFiles/{0}.wotreplay'.format(timeStamp)
-        with open(filePath, 'wb') as code:
-            code.write(f.content)
-        
-        # 插入数据库
-        downloadsCol.insert_one({ 'url': url })
-
-        return filePath
-
