@@ -14,4 +14,4 @@ RUN pip install beautifulsoup4
 
 RUN pip install pymongo
 
-CMD python main.py
+CMD python -u main.py

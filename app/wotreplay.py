@@ -14,9 +14,10 @@ class Wotreplay:
         rTxt = f.read()
 
         # 截取文件内容转为字典
-        searchObj = re.search(r'{".*"playerName".*"}', rTxt)
+        searchObj = re.search(r'{".*"arenaUniqueID"', rTxt)
         if searchObj:
-            self.__rDict = json.loads(searchObj.group())
+            searchObj1 = re.search(r'{.*}', searchObj.group())
+            self.__rDict = json.loads(searchObj1.group())
 
         # 截取文件内容转为列表
         searchObj = re.search(r'\[{"arenaUniqueID".*"frags".*}}\]', rTxt)
