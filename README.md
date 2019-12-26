@@ -14,6 +14,8 @@ Download 下载录像类
 
 ## 用法
 
+### 1 使用 Docker
+
 应用使用 Docker 进行部署
 
 * 第一步
@@ -58,6 +60,20 @@ docker start 容器id  # 启动容器
 
 ```
 
+### 2 使用 python
+
+安装库
+
+```
+pip install requests  # url库
+
+pip install beautifulsoup4  # 爬虫库
+
+pip install pymongo  # mongodb库
+
+pip install XlsxWriter  # excel库
+```
+
 ## 其他
 
 配置说明：
@@ -92,6 +108,8 @@ docker start 容器id  # 启动容器
 
 ## 更新日志
 
-* 2019-11-29 第一个版本
+* 2019-11-29 v0.0.1
 
-* 2019-12-10 第二版本 重写了url获取和下载文件逻辑
+* 2019-12-10 v0.0.2 重写了url获取和下载文件逻辑
+
+* 2019-12-26 v0.0.3 生成excel表格 players.xlsx
